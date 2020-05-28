@@ -9,10 +9,10 @@ $api_url = $is_production ?
   'https://app.sandbox.midtrans.com/snap/v1/transactions';
 
 
-if( !strpos($_SERVER['REQUEST_URI'], '/charge') ) {
-  http_response_code(404); 
-  echo "wrong path, make sure it's `/charge`"; exit();
-}
+// if( !strpos($_SERVER['REQUEST_URI'], '/charge') ) {
+//   http_response_code(404); 
+//   echo "wrong path, make sure it's `/charge`"; exit();
+// }
 
 if( $_SERVER['REQUEST_METHOD'] !== 'POST'){
   http_response_code(404);
