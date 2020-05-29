@@ -25,7 +25,7 @@ if( $_SERVER['REQUEST_METHOD'] !== 'POST'){
   $grossAmount = $array["transaction_details"]["gross_amount"];
   echo 'ini adalah : ';
   echo $grossAmount;
-  getData();
+  //getData();
   storeToDatabase($grossAmount); 
   
   echo "Page not found or wrong HTTP request method is used"; exit();

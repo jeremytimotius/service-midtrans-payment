@@ -14,9 +14,12 @@
         //gross amount in string
         $ga = strval($grossAmount);
         echo $ga;
-        mysqli_query($connection, "INSERT INTO transactions VALUES ('', $ga)");
+        $query2 = "INSERT INTO transactions (transactionId , gross_amount) VALUES ('', 15000)";
 
-        return mysqli_affected_rows($connection);
+        $result = mysqli_query($conn, $query2);
+        // mysqli_query($connection, "INSERT INTO transactions VALUES ('', $ga)");
+
+        // return mysqli_affected_rows($connection);
     }
 
     function getData(){
