@@ -1,7 +1,7 @@
 <?php
-    $connection = new mysqli("localhost:/var/lib/mysql/mysql.sock", "root", "", "midtrans_dummy") or die('faileld: ' . $connection->error);
+    $connection = new mysqli("", "", "", "midtrans_dummy") or die('faileld: ' . $connection->error);
 
-    phpinfo();
+    //phpinfo();
 
     if ($connection -> connect_errno) {
         echo "Failed to connect to MySQL: " . $connection -> connect_error;
