@@ -16,12 +16,15 @@ $api_url = $is_production ?
 
 if( $_SERVER['REQUEST_METHOD'] !== 'POST'){
   http_response_code(404);
+  $test = file_get_contents('php://input');
+  echo file_get_contents('php://input');
+  echo json_decode($test);
   echo "Page not found or wrong HTTP request method is used"; exit();
 }
 
-$request_body = file_get_contents('php://input');
+$request_body = file_get_contents('php://input'); 
 header('Content-Type: application/json');
-
+echo 'php://input';
 $charge_result = chargeAPI($api_url, $server_key, $request_body);
 
 http_response_code($charge_result['http_code']);
