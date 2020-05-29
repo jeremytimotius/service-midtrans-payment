@@ -1,5 +1,5 @@
 <?php
-    $connection = new mysqli("localhost:/tmp/mysql.sock", "root", "", "midtrans_dummy") or die('faileld: ' . $connection->error);
+    $connection = new mysqli("localhost", "pma", "", "midtrans_dummy") or die('faileld: ' . $connection->error);
 
     //phpinfo();
 
