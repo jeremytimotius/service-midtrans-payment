@@ -6,7 +6,7 @@
         global $connection;
 
         $ga = strval($grossAmount);
-
+        echo $ga;
         mysqli_query($connection, "INSERT INTO transactions VALUES ('', $ga)");
         echo "asd";
 
