@@ -19,10 +19,7 @@ if( $_SERVER['REQUEST_METHOD'] !== 'POST'){
   $inputBody = file_get_contents('php://input'); 
   $array = json_decode($inputBody, true);
 
-  var_dump($array);
-
   echo $array["transaction_details"]["gross_amount"];
-
   
   echo "Page not found or wrong HTTP request method is used"; exit();
 }
