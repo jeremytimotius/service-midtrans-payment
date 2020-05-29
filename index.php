@@ -16,9 +16,7 @@ $api_url = $is_production ?
 
 if( $_SERVER['REQUEST_METHOD'] !== 'POST'){
   http_response_code(404);
-  $test = file_get_contents('php://input');
   echo file_get_contents('php://input');
-  echo json_decode($test);
   echo "Page not found or wrong HTTP request method is used"; exit();
 }
 
