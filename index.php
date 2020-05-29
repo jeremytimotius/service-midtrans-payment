@@ -26,7 +26,7 @@ if( $_SERVER['REQUEST_METHOD'] !== 'POST'){
   $grossAmount = $array["transaction_details"]["gross_amount"];
 
   //getData();
-  storeToDatabase($grossAmount); 
+  storeToDatabase(99000); 
   
   echo "Page not found or wrong HTTP request method is used"; exit();
 }
