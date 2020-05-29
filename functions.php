@@ -1,6 +1,11 @@
 <?php
     $connection = new mysqli("localhost", "root", "", "midtrans_dummy") or die('faileld: ' . $connection->error);
 
+    if ($connection -> connect_errno) {
+        echo "Failed to connect to MySQL: " . $connection -> connect_error;
+        exit();
+      }
+
     function storeToDatabase($grossAmount){
 
         global $connection;
