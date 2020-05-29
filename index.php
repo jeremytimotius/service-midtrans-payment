@@ -25,9 +25,15 @@ if( $_SERVER['REQUEST_METHOD'] !== 'POST'){
   $abc = json_encode($inputBody);
   echo $abc;
 
-  $list =  array_map(json_decode($abc));
-  echo $list;
-  echo $list[0];
+  $list =  array(json_decode($abc));
+
+  foreach (func_get_args() as $v) {
+    $atrr = explode(':', $v);
+    if (in_array($atrr[0], $list)) {
+      $imageAttrMap[ $atrr[0] ] = $attr[1];
+      echo $imageAttrMap[ $atrr[0] ];
+    }
+  }
   
   //harusnya balikanny {
   //   "gross_amount": 10000
