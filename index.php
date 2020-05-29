@@ -16,7 +16,20 @@ $api_url = $is_production ?
 
 if( $_SERVER['REQUEST_METHOD'] !== 'POST'){
   http_response_code(404);
-  echo file_get_contents('php://input');
+  $inputBody = file_get_contents('php://input'); 
+
+  // hasil input body 
+  //"transaction_details": {
+  //   "gross_amount": 10000
+  // }
+
+  $obj = json_decode($json);
+  echo $obj->{'transaction_details'};
+
+  //harusnya balikanny {
+  //   "gross_amount": 10000
+  // }
+  
   echo "Page not found or wrong HTTP request method is used"; exit();
 }
 
