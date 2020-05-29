@@ -1,6 +1,6 @@
 <?php
 session_start();
-require 'functions.php';
+include 'functions.php';
 
 $server_key = "SB-Mid-server-O1dyX36O_aHIrrJePcEs-NLG";
 
@@ -19,16 +19,17 @@ $api_url = $is_production ?
 if( $_SERVER['REQUEST_METHOD'] !== 'POST'){
   http_response_code(404);
   
+  //buat test aja jdi taronya disini
   $inputBody = file_get_contents('php://input'); 
   $array = json_decode($inputBody, true);
   $grossAmount = $array["transaction_details"]["gross_amount"];
-
+  echo 'ini adalah : ';
+  echo $grossAmount;
   getData();
   storeToDatabase($grossAmount); 
   
   echo "Page not found or wrong HTTP request method is used"; exit();
 }
-
 
 
 header('Content-Type: application/json');

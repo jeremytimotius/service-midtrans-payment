@@ -1,6 +1,5 @@
 <?php
-    $connection = new mysqli("localhost", "pma", "", "midtrans_dummy") or die('faileld: ' . $connection->error);
-
+    $connection = new mysqli("localhost", "root", "", "midtrans_dummy");
     //phpinfo();
 
     if ($connection -> connect_errno) {
@@ -12,10 +11,10 @@
 
         global $connection;
 
+        //gross amount in string
         $ga = strval($grossAmount);
         echo $ga;
         mysqli_query($connection, "INSERT INTO transactions VALUES ('', $ga)");
-        echo "asd";
 
         return mysqli_affected_rows($connection);
     }
