@@ -1,6 +1,7 @@
 <?php
 session_start();
-include 'functions.php';
+require 'functions.php';
+$conn = OpenCon();
 
 $server_key = "SB-Mid-server-O1dyX36O_aHIrrJePcEs-NLG";
 
@@ -23,9 +24,8 @@ if( $_SERVER['REQUEST_METHOD'] !== 'POST'){
   $inputBody = file_get_contents('php://input'); 
   $array = json_decode($inputBody, true);
   $grossAmount = $array["transaction_details"]["gross_amount"];
-  echo 'ini adalah : ';
-  echo $grossAmount;
-  //getData();
+
+  getData();
   storeToDatabase($grossAmount); 
   
   echo "Page not found or wrong HTTP request method is used"; exit();

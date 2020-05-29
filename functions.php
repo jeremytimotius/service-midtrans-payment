@@ -1,5 +1,17 @@
 <?php
-    $connection = new mysqli("localhost", "root", "", "midtrans_dummy");
+
+    function OpenCon()
+    {
+    $dbhost = "localhost";
+    $dbuser = "root";
+    $dbpass = "";
+    $db = "midtrans_dummy";
+    $conn = new mysqli($dbhost, $dbuser, $dbpass,$db) or die("Connect failed: %s\n". $conn -> error);
+
+    return $conn;
+    }
+
+    //$connection = new mysqli("localhost", "root", "", "midtrans_dummy");
     //phpinfo();
 
     // if ($connection -> connect_errno) {
@@ -9,17 +21,14 @@
 
     function storeToDatabase($grossAmount){
 
-        global $connection;
+        global $conn;
 
         //gross amount in string
         $ga = strval($grossAmount);
         echo $ga;
-        $query2 = "INSERT INTO transactions (transactionId , gross_amount) VALUES ('', 15000)";
+        mysqli_query($conn, "INSERT INTO transactions VALUES ('', $ga)");
 
-        $result = mysqli_query($conn, $query2);
-        // mysqli_query($connection, "INSERT INTO transactions VALUES ('', $ga)");
-
-        // return mysqli_affected_rows($connection);
+        return mysqli_affected_rows($connection);
     }
 
     function getData(){
