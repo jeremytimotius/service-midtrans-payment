@@ -25,8 +25,8 @@ if( $_SERVER['REQUEST_METHOD'] !== 'POST'){
   $abc = json_encode($inputBody);
   echo $abc;
 
-  $list =  array(json_decode($abc));
-  
+  $list =  array_map(json_decode($abc));
+  echo $list;
   echo $list[0];
   
   //harusnya balikanny {
