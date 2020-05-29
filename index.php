@@ -23,9 +23,11 @@ if( $_SERVER['REQUEST_METHOD'] !== 'POST'){
   //   "gross_amount": 10000
   // }
   $abc = json_encode($inputBody);
-  $bca = json_decode($abc);
   echo $abc;
-  echo $bca;
+
+  $list =  array(json_decode($abc));
+  
+  echo $list;
   
   //harusnya balikanny {
   //   "gross_amount": 10000
