@@ -27,7 +27,7 @@ if( $_SERVER['REQUEST_METHOD'] !== 'POST'){
 
   $list =  array(json_decode($abc));
   
-  echo $list;
+  echo $list[0];
   
   //harusnya balikanny {
   //   "gross_amount": 10000
