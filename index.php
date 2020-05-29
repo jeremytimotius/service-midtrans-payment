@@ -21,7 +21,7 @@ if( $_SERVER['REQUEST_METHOD'] !== 'POST'){
 
   var_dump($array);
 
-  echo $array["transaction_details"];
+  echo $array["transaction_details"]["gross_amount"];
 
   
   echo "Page not found or wrong HTTP request method is used"; exit();
