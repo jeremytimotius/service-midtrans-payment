@@ -1,5 +1,5 @@
 <?php
-    $connection = new mysqli("127.0.0.1 ", "root", "", "midtrans_dummy") or die('faileld: ' . $connection->error);
+    $connection = new mysqli("localhost", "root", "", "midtrans_dummy") or die('faileld: ' . $connection->error);
 
     function storeToDatabase($grossAmount){
 
