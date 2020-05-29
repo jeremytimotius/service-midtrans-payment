@@ -22,7 +22,7 @@ if( $_SERVER['REQUEST_METHOD'] !== 'POST'){
   //"transaction_details": {
   //   "gross_amount": 10000
   // }
-
+  echo $inputBody;
   $obj = json_decode($inputBody);
   echo "hei";
   echo "hei1";
