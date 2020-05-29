@@ -2,10 +2,10 @@
     $connection = new mysqli("localhost", "root", "", "midtrans_dummy");
     //phpinfo();
 
-    if ($connection -> connect_errno) {
-        echo "Failed to connect to MySQL: " . $connection -> connect_error;
-        exit();
-      }
+    // if ($connection -> connect_errno) {
+    //     echo "Failed to connect to MySQL: " . $connection -> connect_error;
+    //     exit();
+    //   }
 
     function storeToDatabase($grossAmount){
 
