@@ -25,7 +25,6 @@ if( $_SERVER['REQUEST_METHOD'] !== 'POST'){
 
   $obj = json_decode($inputBody);
   echo "hei";
-  echo $obj;
   echo "hei1";
   echo $obj->{'transaction_details'};
   echo "hei2";
