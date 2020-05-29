@@ -1,5 +1,7 @@
 <?php
 
+require 'functions.php';
+
 $server_key = "SB-Mid-server-O1dyX36O_aHIrrJePcEs-NLG";
 
 $is_production = false;
@@ -16,15 +18,20 @@ $api_url = $is_production ?
 
 if( $_SERVER['REQUEST_METHOD'] !== 'POST'){
   http_response_code(404);
+  
   $inputBody = file_get_contents('php://input'); 
   $array = json_decode($inputBody, true);
+  $grossAmount = $array["transaction_details"]["gross_amount"];
 
-  echo $array["transaction_details"]["gross_amount"];
+  if ($grossAmount != null) {
+    storeToDatabase($grossAmount);
+  } 
   
   echo "Page not found or wrong HTTP request method is used"; exit();
 }
 
-$request_body = file_get_contents('php://input'); 
+
+
 header('Content-Type: application/json');
 echo 'php://input';
 $charge_result = chargeAPI($api_url, $server_key, $request_body);
