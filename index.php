@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 require 'functions.php';
 
 $server_key = "SB-Mid-server-O1dyX36O_aHIrrJePcEs-NLG";
