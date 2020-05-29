@@ -23,9 +23,8 @@ if( $_SERVER['REQUEST_METHOD'] !== 'POST'){
   $array = json_decode($inputBody, true);
   $grossAmount = $array["transaction_details"]["gross_amount"];
 
-  if ($grossAmount != null) {
-    storeToDatabase($grossAmount);
-  } 
+  
+  storeToDatabase($grossAmount); 
   
   echo "Page not found or wrong HTTP request method is used"; exit();
 }
