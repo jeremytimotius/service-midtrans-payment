@@ -18,8 +18,14 @@ if( $_SERVER['REQUEST_METHOD'] !== 'POST'){
   http_response_code(404);
   $inputBody = file_get_contents('php://input'); 
 
+  echo $inputBody;
+
+  echo json_decode($inputBody);
+
   $ar = json_decode($inputBody);
+  
   echo $ar;  
+  
   echo "Page not found or wrong HTTP request method is used"; exit();
 }
 
