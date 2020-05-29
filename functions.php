@@ -1,5 +1,5 @@
 <?php
-    $connection = mysqli_connect("localhost", "root", "", "midtrans_dummy");
+    $connection = mysqli_connect("127.0.0.1", "root", "", "midtrans_dummy");
 
     function storeToDatabase($grossAmount){
 
@@ -8,7 +8,6 @@
         $ga = strval($grossAmount);
 
         mysqli_query($connection, "INSERT INTO transactions VALUES ('', $ga)");
-        
         echo "asd";
 
         return mysqli_affected_rows($connection);
