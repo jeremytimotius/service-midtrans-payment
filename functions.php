@@ -4,8 +4,10 @@
     function storeToDatabase($grossAmount){
 
         global $connection;
-        
-        mysqli_query($connection, "INSERT INTO transactions VALUES ('',$grossAmount)");
+
+        $ga = strval($grossAmount);
+
+        mysqli_query($connection, "INSERT INTO transactions VALUES ('', $ga)");
         echo mysqli_affected_rows($connection);
         return mysqli_affected_rows($connection);
     }
