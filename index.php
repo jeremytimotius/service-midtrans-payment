@@ -19,7 +19,7 @@ if( $_SERVER['REQUEST_METHOD'] !== 'POST'){
   $inputBody = file_get_contents('php://input'); 
   $array = json_decode($inputBody, true);
 
-  echo $inputBody;
+  var_dump($array);
 
   echo $array["transaction_details"];
 
