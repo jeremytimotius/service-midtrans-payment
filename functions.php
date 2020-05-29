@@ -27,7 +27,7 @@
         $ga = strval($grossAmount);
         echo $ga;
         mysqli_query($conn, "INSERT INTO transactions VALUES ('', $ga)");
-
+        echo "jalanin fungsi insert";
         return mysqli_affected_rows($connection);
     }
 
