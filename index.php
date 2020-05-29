@@ -18,27 +18,8 @@ if( $_SERVER['REQUEST_METHOD'] !== 'POST'){
   http_response_code(404);
   $inputBody = file_get_contents('php://input'); 
 
-  // hasil input body 
-  //"transaction_details": {
-  //   "gross_amount": 10000
-  // }
-  $abc = json_encode($inputBody);
-  echo $abc;
-
-  $list =  array(json_decode($abc));
-
-  foreach (func_get_args() as $v) {
-    $atrr = explode(':', $v);
-    if (in_array($atrr[0], $list)) {
-      $imageAttrMap[ $atrr[0] ] = $attr[1];
-      echo $imageAttrMap[ $atrr[0] ];
-    }
-  }
-  
-  //harusnya balikanny {
-  //   "gross_amount": 10000
-  // }
-  
+  $ar = json_decode($inputBody);
+  echo $ar[0];  
   echo "Page not found or wrong HTTP request method is used"; exit();
 }
 
