@@ -8,8 +8,23 @@
         $ga = strval($grossAmount);
 
         mysqli_query($connection, "INSERT INTO transactions VALUES ('', $ga)");
-        echo mysqli_affected_rows($connection);
+        
+        echo "asd";
+
         return mysqli_affected_rows($connection);
+    }
+
+    function getData(){
+        global $connection;
+
+        $query = "SELECT * FROM transactions";
+    
+        $result = mysqli_query($connection, $query);
+        $fetched = mysqli_fetch_assoc($result);
+        
+        var_dump($fetched);
+
+        return $fetched;
     }
 
 ?>
