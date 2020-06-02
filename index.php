@@ -1,5 +1,4 @@
 <?php
-session_start();
 require 'functions.php';
 $conn = OpenCon();
 
@@ -11,7 +10,6 @@ $api_url = $is_production ?
   'https://app.midtrans.com/snap/v1/transactions' : 
   'https://app.sandbox.midtrans.com/snap/v1/transactions';
 
-
 // if( !strpos($_SERVER['REQUEST_URI'], '/charge') ) {
 //   http_response_code(404); 
 //   echo "wrong path, make sure it's `/charge`"; exit();
@@ -20,19 +18,37 @@ $api_url = $is_production ?
 if( $_SERVER['REQUEST_METHOD'] !== 'POST'){
   http_response_code(404);
   
-  //buat test aja jdi taronya disini
-  $inputBody = file_get_contents('php://input'); 
-  $array = json_decode($inputBody, true);
-  $grossAmount = $array["transaction_details"]["gross_amount"];
+  // //buat test aja jdi taronya disini
+  // $inputBody = file_get_contents('php://input'); 
+  // $array = json_decode($inputBody, true);
+  // $grossAmount = $array["transaction_details"]["gross_amount"];
   
-  echo 'returned id in index php: ' . storeToDatabase($grossAmount);
+  // echo 'returned id in index php: ' . storeToDatabase($grossAmount); 
   
   echo "Page not found or wrong HTTP request method is used"; exit();
 }
 
+//costumise ini
+$inputBody = file_get_contents('php://input'); 
+$array = json_decode($inputBody, true);
+$grossAmount = $array["transaction_details"]["gross_amount"];
+$returnedId = storeToDatabase($grossAmount);
+
+$request_body = "{
+  'transaction_details: {
+     order_id: ' . 'ORDER-' . $returnedId . ','.
+     'gross_amount: ' . $grossAmount
+  }
+}";
+
+
+// 	'transaction_details': {
+// 		'order_id': 'ORDER-' . storeToDatabase($grossAmount),
+// 		'gross_amount': $grossAmount
+// 	} hans gw udah balikk
+
 
 header('Content-Type: application/json');
-echo 'php://input';
 $charge_result = chargeAPI($api_url, $server_key, $request_body);
 
 http_response_code($charge_result['http_code']);

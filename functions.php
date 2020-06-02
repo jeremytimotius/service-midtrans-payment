@@ -15,13 +15,9 @@
     function storeToDatabase($grossAmount){
 
         global $conn;
-
-        //gross amount in string
         $ga = strval($grossAmount);
         mysqli_query($conn, "INSERT INTO transactions VALUES ('', $ga)");
 
-        //klo affected rowsnya itu 1, return idnya, klo engga echo aja abis itu exit();
-        //udah harusny itu aja.
         if(mysqli_affected_rows($conn) == 1){
             return mysqli_insert_id($conn);
         } else{ 
