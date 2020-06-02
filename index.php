@@ -49,7 +49,8 @@ $request_body = "{
 
 
 header('Content-Type: application/json');
-$charge_result = chargeAPI($api_url, $server_key, $request_body);
+// $charge_result = chargeAPI($api_url, $server_key, $request_body);
+echo chargeAPI($api_url, $server_key, $request_body);
 
 http_response_code($charge_result['http_code']);
 
@@ -57,25 +58,26 @@ echo $charge_result['body'];
 
 
 function chargeAPI($api_url, $server_key, $request_body){
-  $ch = curl_init();
-  $curl_options = array(
-    CURLOPT_URL => $api_url,
-    CURLOPT_RETURNTRANSFER => 1,
-    CURLOPT_POST => 1,
-    CURLOPT_HEADER => 0,
+  return $request_body;
+  // $ch = curl_init();
+  // $curl_options = array(
+  //   CURLOPT_URL => $api_url,
+  //   CURLOPT_RETURNTRANSFER => 1,
+  //   CURLOPT_POST => 1,
+  //   CURLOPT_HEADER => 0,
 
 
-    CURLOPT_HTTPHEADER => array(
-      'Content-Type: application/json',
-      'Accept: application/json',
-      'Authorization: Basic ' . base64_encode($server_key . ':')
-    ),
-    CURLOPT_POSTFIELDS => $request_body
-  );
-  curl_setopt_array($ch, $curl_options);
-  $result = array(
-    'body' => curl_exec($ch),
-    'http_code' => curl_getinfo($ch, CURLINFO_HTTP_CODE),
-  );
-  return $result;
+  //   CURLOPT_HTTPHEADER => array(
+  //     'Content-Type: application/json',
+  //     'Accept: application/json',
+  //     'Authorization: Basic ' . base64_encode($server_key . ':')
+  //   ),
+  //   CURLOPT_POSTFIELDS => $request_body
+  // );
+  // curl_setopt_array($ch, $curl_options);
+  // $result = array(
+  //   'body' => curl_exec($ch),
+  //   'http_code' => curl_getinfo($ch, CURLINFO_HTTP_CODE),
+  // );
+  // return $result;
 }
