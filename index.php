@@ -35,9 +35,9 @@ $grossAmount = $array["transaction_details"]["gross_amount"];
 $returnedId = storeToDatabase($grossAmount);
 
 $request_body = "{
-  'transaction_details: {
-     order_id: ' . 'ORDER-' . $returnedId . ','.
-     'gross_amount: ' . $grossAmount
+  'transaction_details': {
+     'order_id' : ORDER-$returnedId,
+     'gross_amount': $grossAmount
   }
 }";
 
