@@ -11,13 +11,6 @@
         return $conn;
     }
 
-    //$connection = new mysqli("localhost", "root", "", "midtrans_dummy");
-    //phpinfo();
-
-    // if ($connection -> connect_errno) {
-    //     echo "Failed to connect to MySQL: " . $connection -> connect_error;
-    //     exit();
-    //   }
 
     function storeToDatabase($grossAmount){
 
@@ -27,21 +20,17 @@
         $ga = strval($grossAmount);
         echo $ga;
         mysqli_query($conn, "INSERT INTO transactions VALUES ('', $ga)");
+
+        //klo affected rowsnya itu 1, return idnya, klo engga echo aja abis itu exit();
+        //udah harusny itu aja.
+        if(mysqli_affected_rows($conn) == 1){
+            echo mysqli_insert_id($conn);
+            return mysqli_insert_id($conn);
+        } else{
+            echo "gaada id yg diinsert";
+            exit();
+        }
         echo "jalanin fungsi insert";
         return mysqli_affected_rows($connection);
     }
-
-    function getData(){
-        global $connection;
-
-        $query = "SELECT * FROM transactions";
-    
-        $result = mysqli_query($connection, $query);
-        $fetched = mysqli_fetch_assoc($result);
-        
-        var_dump($fetched);
-
-        return $fetched;
-    }
-
 ?>

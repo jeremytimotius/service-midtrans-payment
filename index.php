@@ -24,8 +24,7 @@ if( $_SERVER['REQUEST_METHOD'] !== 'POST'){
   $inputBody = file_get_contents('php://input'); 
   $array = json_decode($inputBody, true);
   $grossAmount = $array["transaction_details"]["gross_amount"];
-  //yodah coba lu update herokunya jer. g itt add. git commit -m " git push. okee
-  //getData();
+  getTransactionId();
   storeToDatabase($grossAmount); 
   
   echo "Page not found or wrong HTTP request method is used"; exit();
