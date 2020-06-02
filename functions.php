@@ -2,13 +2,13 @@
 
     function OpenCon()
     {
-    $dbhost = "localhost";
-    $dbuser = "root";
-    $dbpass = "";
-    $db = "midtrans_dummy";
-    $conn = new mysqli($dbhost, $dbuser, $dbpass,$db) or die("Connect failed: %s\n". $conn -> error);
-
-    return $conn;
+        $dbhost = "sql12.freemysqlhosting.net";
+        $dbuser = "sql12344952";
+        $dbpass = "IUzQZgRIQP";
+        $db = "sql12344952";
+        $conn = new mysqli($dbhost, $dbuser, $dbpass,$db) or die("Connect failed: %s\n". $conn -> error);
+            
+        return $conn;
     }
 
     //$connection = new mysqli("localhost", "root", "", "midtrans_dummy");
