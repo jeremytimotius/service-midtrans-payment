@@ -23,8 +23,6 @@
         //klo affected rowsnya itu 1, return idnya, klo engga echo aja abis itu exit();
         //udah harusny itu aja.
         if(mysqli_affected_rows($conn) == 1){
-            echo mysqli_insert_id($conn);
-            echo \n;
             return mysqli_insert_id($conn);
         } else{ 
             echo "gaada id yg diinsert";
