@@ -1,7 +1,6 @@
 <?php
 
-    function OpenCon()
-    {
+    function OpenCon(){
         $dbhost = "sql12.freemysqlhosting.net";
         $dbuser = "sql12344952";
         $dbpass = "IUzQZgRIQP";
@@ -11,9 +10,7 @@
         return $conn;
     }
 
-
     function storeToDatabase($grossAmount){
-
         global $conn;
         $ga = strval($grossAmount);
         mysqli_query($conn, "INSERT INTO transactions VALUES ('', $ga)");
@@ -21,7 +18,7 @@
         if(mysqli_affected_rows($conn) == 1){
             return mysqli_insert_id($conn);
         } else{ 
-            echo "gaada id yg diinsert";
+            echo "Gagal untuk mendapatkan id !";
             exit();
         } 
     }
